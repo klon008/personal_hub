@@ -70,6 +70,10 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
+        'loadingBar': {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(100%)' },
+        },
         'accordion-down': {
           from: {
             height: '0',
@@ -90,7 +94,9 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'loadingBar': 'loadingBar 1.5s linear infinite',
       },
+
     },
   },
   plugins: [require('tailwindcss-animate')],

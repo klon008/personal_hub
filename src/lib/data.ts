@@ -31,7 +31,7 @@ export const initialProjects: Project[] = [
   {
     id: 4,
     title: "PoE Divine Converter",
-    description: "Небольшой проект для быстрой конвертации валют PoE и подсчета их стэше.",
+    description: "Небольшой проект для быстрой конвертации валют PoE и подсчета их в стэше.",
     category: "PoE",
     date: "2022-05-20",
     icon: "/icons/Divine_Orb_inventory_icon.png",

@@ -3794,6 +3794,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"create-puzzle@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "create-puzzle@npm:3.0.3"
+  dependencies:
+    ut2: "npm:^1.17.0"
+    util-helpers: "npm:^5.7.0"
+  checksum: 10c0/4f73ce4f5b3dddadaa2ba8cd49f9087a0c3fef440e3dca40ff9db609cbc3bd1cde08f0c80149e089ce8b8ecbf11fa3899e76f58669f10430434cc8824b432b97
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^7.0.3, cross-spawn@npm:^7.0.5, cross-spawn@npm:^7.0.6":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
@@ -6204,6 +6214,7 @@ __metadata:
     "@types/react-dom": "npm:^18"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
+    create-puzzle: "npm:^3.0.3"
     date-fns: "npm:^3.6.0"
     dotenv: "npm:^16.5.0"
     embla-carousel-react: "npm:^8.6.0"
@@ -8114,7 +8125,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"util-helpers@npm:^5.7.4":
+"util-helpers@npm:^5.7.0, util-helpers@npm:^5.7.4":
   version: 5.7.4
   resolution: "util-helpers@npm:5.7.4"
   dependencies:
