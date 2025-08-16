@@ -32,7 +32,7 @@ function WorksSection() {
   const [sortOption, setSortOption] = React.useState<string>("date-desc");
 
   const categories = React.useMemo(() => {
-    const allCategories = new Set(initialProjects.map((p) => p.category));
+      const allCategories = new Set(initialProjects.flatMap((p) => p.category));
     return ["Все", ...Array.from(allCategories)];
   }, []);
 
@@ -40,7 +40,7 @@ function WorksSection() {
     let result = [...projects];
 
     if (activeCategory !== "Все") {
-      result = result.filter((p) => p.category === activeCategory);
+        result = result.filter((p) => p.category.includes(activeCategory));
     }
 
     const [sortBy, order] = sortOption.split("-");

@@ -1,5 +1,6 @@
 "use client";
 
+import styles from './page.module.css';
 import * as React from "react";
 import {
   ArrowDown,
@@ -63,15 +64,15 @@ function WorksSection() {
   const [sortOption, setSortOption] = React.useState<string>("date-desc");
 
   const categories = React.useMemo(() => {
-    const allCategories = new Set(initialProjects.map((p) => p.category));
-    return ["Все", ...Array.from(allCategories)];
+      const allCategories = new Set(initialProjects.flatMap((p) => p.category));
+      return ["Все", ...Array.from(allCategories)];
   }, []);
 
   const filteredAndSortedProjects = React.useMemo(() => {
     let result = [...projects];
 
     if (activeCategory !== "Все") {
-      result = result.filter((p) => p.category === activeCategory);
+        result = result.filter((p) => p.category.includes(activeCategory));
     }
 
     const [sortBy, order] = sortOption.split("-");
@@ -161,11 +162,16 @@ export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <SiteHeader />
-      <main className="flex-1">
-        <HeroSection />
-        <WorksSection />
-      </main>
-      <SiteFooter />
+        <main className="flex-1">
+            <div className={styles.liquidContainer}>
+                <div className={`${styles.blob} ${styles.blob1}`}></div>
+                <div className={`${styles.blob} ${styles.blob2}`}></div>
+                <div className={`${styles.blob} ${styles.blob3}`}></div>
+            </div>
+            <HeroSection/>
+            <WorksSection/>
+        </main>
+        <SiteFooter/>
     </div>
   );
 }

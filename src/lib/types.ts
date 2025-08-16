@@ -4,7 +4,7 @@ export interface Project {
   id: number;
   title: string;
   description: string;
-  category: string;
+  category: string[];
   date: string; // ISO 8601 format: "YYYY-MM-DD"
   icon: string;
   link: string;

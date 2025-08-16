@@ -15,7 +15,7 @@ import {z} from 'genkit';
 const PortfolioProjectSchema = z.object({
   title: z.string().describe('The title of the portfolio project.'),
   description: z.string().describe('A brief description of the project.'),
-  category: z.string().describe('The current category of the project.'),
+  category: z.array(z.string()).describe('The current categories of the project.'),
 });
 export type PortfolioProject = z.infer<typeof PortfolioProjectSchema>;
 
@@ -43,18 +43,18 @@ Projects:
 {{#each projects}}
   - Title: {{this.title}}
     Description: {{this.description}}
-    Current Category: {{this.category}}
+    Current Categories: {{#each this.category}}{{#if @index}}, {{/if}}{{this}}{{/each}}
 {{/each}}`,
 });
 
 const recommendAlternativeGroupingsFlow = ai.defineFlow(
-  {
-    name: 'recommendAlternativeGroupingsFlow',
-    inputSchema: RecommendAlternativeGroupingsInputSchema,
-    outputSchema: RecommendAlternativeGroupingsOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
-  }
+    {
+      name: 'recommendAlternativeGroupingsFlow',
+      inputSchema: RecommendAlternativeGroupingsInputSchema,
+      outputSchema: RecommendAlternativeGroupingsOutputSchema,
+    },
+    async input => {
+      const {output} = await prompt(input);
+      return output!;
+    }
 );

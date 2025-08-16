@@ -20,7 +20,7 @@ interface AiRecommenderProps {
   projects: {
     title: string;
     description: string;
-    category: string;
+    category: string[];
   }[];
 }
 
