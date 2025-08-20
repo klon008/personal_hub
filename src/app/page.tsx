@@ -31,8 +31,8 @@ import {SiteFooter} from "@/components/site-footer";
 
 import FallingPixelInvaders from '@/components/FallingPixelInvaders';
 import AlienIcon from "@/components/AlienIcon";
-import {useState} from "react"; // клиентский компонент
-import { useTheme } from "next-themes";
+import {useEffect, useState} from "react"; // клиентский компонент
+import {useTheme} from "next-themes";
 
 function HeroSection() {
     return (
@@ -169,12 +169,18 @@ function WorksSection() {
 
 export default function LandingPage() {
     const [started, setStarted] = useState(false);
-    const { theme, setTheme, resolvedTheme } = useTheme();
+    const {theme, setTheme, resolvedTheme} = useTheme();
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+    if (!mounted) {
+        // пока не смонтировался клиент — ничего не рендерим
+        return null;
+    }
     return (
         <div className="flex min-h-screen flex-col">
             <SiteHeader/>
-            {!started && theme=='dark' && <AlienIcon onClick={() => setStarted(true)} />}
-            {started && <FallingPixelInvaders />}
+            {!started && theme == 'dark' && <AlienIcon onClick={() => setStarted(true)}/>}
+            {started && theme == 'dark' && <FallingPixelInvaders/>}
             <main className="flex-1">
                 <div className={styles.liquidContainer}>
                     <div className={`${styles.blob} ${styles.blob1}`}></div>
