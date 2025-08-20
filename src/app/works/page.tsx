@@ -60,7 +60,7 @@ function WorksSection() {
   }, [projects, activeCategory, sortOption]);
 
   return (
-    <section id="works" className="py-20 sm:py-32 bg-slate-50">
+    <section id="works" className="py-20 sm:py-32">
       <div className="container mx-auto">
         <div className="mb-12 text-center">
             <h2 className="text-4xl font-semibold tracking-tight bg-[linear-gradient(135deg,_#2563eb_0%,_#3b82f6_50%,_#60a5fa_100%)] bg-clip-text text-transparent">Избранные проекты</h2>
